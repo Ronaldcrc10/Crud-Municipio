@@ -94,7 +94,14 @@
                         <th scope="row">{{ $municipio->muni_codi }}</th>
                         <td>{{ $municipio->muni_nomb }}</td>
                         <td>{{ $municipio->depa_nomb }}</td>
-                       
+
+
+                        <!-- Botón para eliminar un municipio -->
+                        <form action="{{ route('municipios.destroy', ['municipio' => $municipio->muni_codi]) }}" method='POST' style="display: inline-block">
+                                @method('delete')
+                                @csrf
+                                <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta comuna?')">
+                            </form>
                     </tr>
                 @endforeach
             </tbody>
