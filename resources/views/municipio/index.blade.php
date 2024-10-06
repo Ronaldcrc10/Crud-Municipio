@@ -94,7 +94,9 @@
                         <th scope="row">{{ $municipio->muni_codi }}</th>
                         <td>{{ $municipio->muni_nomb }}</td>
                         <td>{{ $municipio->depa_nomb }}</td>
-
+                        <td>
+                            <!-- Botón para editar municipio -->
+                            <a href="{{ route('municipios.edit',['municipio' =>$municipio->muni_codi]) }}" class="btn btn-info">Editar</a>
 
                         <!-- Botón para eliminar un municipio -->
                         <form action="{{ route('municipios.destroy', ['municipio' => $municipio->muni_codi]) }}" method='POST' style="display: inline-block">
@@ -102,6 +104,7 @@
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta comuna?')">
                             </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
